@@ -37,12 +37,12 @@ export default function TelaLogin() {
       <TextInput
       placeholder='Digite sua senha' style={styles.input}
       />
-      <TouchableOpacity>
+      <TouchableOpacity styles={styles.senha} onPress={() => navigation.navigate('pagSenha')}>
       <Text style={styles.buttonEsqueciSenha}>
         Esqueci minha senha
       </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.buttonEntrar}>
+      <TouchableOpacity style={styles.buttonEntrar} onPress={() => navigation.navigate('pagTelaInicial')}>
       <Text style={styles.entrar}>
         Entrar
       </Text>
@@ -101,9 +101,14 @@ const styles = StyleSheet.create({
     width: '70%',
     padding: 15
   },
+  senha:{
+    
+  },
   buttonEsqueciSenha:{
-    fontSize: 13,
-    fontWeight: 'bold'
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#2152CF',
+    padding: 10
   },
   buttonEntrar:{
     backgroundColor: '#2152CF',
@@ -137,7 +142,8 @@ const styles = StyleSheet.create({
   },
   text:{
     color: '#fff',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: 18
   },
   textCadastro:{
     color: '#fff',

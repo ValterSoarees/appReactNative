@@ -34,38 +34,18 @@ import {
             </View>
 
           <View style={styles.containerPrincipal}>
-            <Text style={styles.tituloPag}>Dados de Cadastro</Text>
-
-            <Text style={styles.text}>
-            Digite seu nome e sobrenome
-            </Text>
-            <TextInput style={styles.input}/>
-
-            <Text style={styles.text}>
-            Digite um username
-            </Text>
-            <TextInput style={styles.input}/>
+            <Text style={styles.tituloPag}>Está com problemas na sua senha ou quer muda-lá?</Text>
 
             <Text style={styles.text}>
             Informe seu e-mail
             </Text>
-            <TextInput style={styles.input}/>
-
-            <Text style={styles.text}>
-            Informe seu telefone
+            <TextInput placeholder='exemplo@email.com' style={styles.input}/>
+            <TouchableOpacity style={styles.buttonRecuperarTel}>
+            <Text style={styles.text1}>
+                RECUPERAR/MUDAR PELO TELEFONE
             </Text>
-            <TextInput style={styles.input}/>
+            </TouchableOpacity>
 
-            <Text style={styles.text}>
-            Crie uma senha
-            </Text>
-            <TextInput style={styles.input}/>
-
-            <View style={styles.campoBotoes}>
-              <Text style={styles.textFinalizar}>
-              Clique em continuar para finalizar seu cadastro
-              </Text>
-            </View>
               <View style={styles.botoes}>
               <TouchableOpacity style={styles.botao} onPress={() => navigation.navigate('pagTelaLogin')}>
                   <Text style={styles.textBotao}>
@@ -97,29 +77,43 @@ import {
         alignItems: 'center',
       },
       text:{
-        fontSize: 19,
+        fontSize: 20,
         marginBottom: '1%',
         marginTop: '3%',
+        textAlign: 'center'
+      },
+      buttonRecuperarTel:{
+        marginBottom: '50%'
+      },
+      text1:{
+        fontSize: 16,
+        marginBottom: '1%',
+        marginTop: '3%',
+        textAlign: 'center',
+        fontWeight: 'bold'
       },
       tituloPag:{
-        fontSize: 40,
-        fontWeight: 'bold',
+        fontSize: 20,
+        // fontWeight: 'bold',
         marginBottom: '5%',
-        color: '#fff'
+        color: '#fff',
+        textAlign: 'center'
       },
       input:{
         borderWidth: 1,
         borderColor: '#fff',
         borderRadius: 5,
         backgroundColor: '#D9D9D9',
-        padding: 6
+        padding: 6,
+        color: '#fff',
       },
       dadosCadastro:{
         flex: 1,
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        alignItems: 'center'
       },
       containerPrincipal:{
-        marginBottom: '30%'
+        marginBottom: '10%',
       },
       campoBotoes:{
         alignItems: 'center',
@@ -129,23 +123,21 @@ import {
       textFinalizar:{
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#fff',
-        width: '60%',
-        textAlign: 'center'
+        color: '#fff'
       },
       botoes:{
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
       },
       botao:{
         backgroundColor: '#2152CF',
         padding: 10,
         width: '35%',
         alignItems: 'center', 
-        borderRadius: 10
+        borderRadius: 10,
+        marginRight: '1%'
       },
       textBotao:{
         color: '#fff',
-        fontWeight: 'bold'
       }
   })

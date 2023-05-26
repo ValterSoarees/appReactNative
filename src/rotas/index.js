@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import pagBemVindos from '../paginas/pagBemVindos/TelaBemVindos';
 import pagTelaLogin from '../paginas/pagTelaLogin/TelaLogin';
 import pagTelaCadastro from '../paginas/pagTelaCadastro/TelaCadastro';
+import pagSenha from '../paginas/pagSenha/TelaSenha';
+import pagTelaInicial from '../paginas/pagTelaInicial/TelaInicial';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +26,18 @@ export default function Rotas(){
             <Stack.Screen
             name="pagTelaCadastro"
             component={pagTelaCadastro}
+            options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+            name="pagSenha"
+            component={pagSenha}
+            options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+            name="pagTelaInicial"
+            component={pagTelaInicial}
             options={{ headerShown: false }}
             />
         </Stack.Navigator>
