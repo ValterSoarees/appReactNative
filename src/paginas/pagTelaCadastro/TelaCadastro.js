@@ -12,7 +12,8 @@ import {
   import * as Animatable from 'react-native-animatable';
   import { useNavigation } from '@react-navigation/native';
 
-  export default function TelaLogin() {
+
+  export default function TelaCadastro() {
 
     const navigation = useNavigation();
 
@@ -35,7 +36,7 @@ import {
 
           <View style={styles.containerPrincipal}>
             <Text style={styles.tituloPag}>Dados de Cadastro</Text>
-
+            
             <Text style={styles.text}>
             Digite seu nome e sobrenome
             </Text>

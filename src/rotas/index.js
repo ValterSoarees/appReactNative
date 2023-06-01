@@ -5,6 +5,7 @@ import pagTelaLogin from '../paginas/pagTelaLogin/TelaLogin';
 import pagTelaCadastro from '../paginas/pagTelaCadastro/TelaCadastro';
 import pagSenha from '../paginas/pagSenha/TelaSenha';
 import pagTelaInicial from '../paginas/pagTelaInicial/TelaInicial';
+import pagLivroDetalhes from '../paginas/pagTelaInicial/pagLivroDetalhes/DetalhesLivro';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,12 @@ export default function Rotas(){
             <Stack.Screen
             name="pagTelaInicial"
             component={pagTelaInicial}
+            options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+            name="pagLivroDetalhes"
+            component={pagLivroDetalhes}
             options={{ headerShown: false }}
             />
         </Stack.Navigator>

@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Feather } from '@expo/vector-icons'; 
 
 const LivroPage = () => {
+
   const [livros, setlivros] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const load = async () => {
       const resultJson = await fetch(
-        'https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent("aventura")}&AIzaSyA2gnDV1nrAOHTaPOOCb181fexdxSXTc-c'
+        'https://www.googleapis.com/books/v1/volumes?q=love&key=AIzaSyA2gnDV1nrAOHTaPOOCb181fexdxSXTc-c'
+        
       );
       const resultProduct = await resultJson.json();
       let resultFormatado = resultProduct.items.map(({ id, volumeInfo }) => ({
         id: id,
         nome: volumeInfo.title,
         autor: volumeInfo.authors,
+        descricao: volumeInfo.description,
         imagem: volumeInfo.imageLinks?.thumbnail,
         categoria: volumeInfo.categories,
         paginas: volumeInfo.pageCount,
@@ -28,26 +34,27 @@ const LivroPage = () => {
   return (
     <>
       <View>
-        <Text>Livros</Text>
         <ScrollView>
           {livros.map((livro) => {
             return (
-              <View key={livro.id}>
+              <View key={livro.id} style={styles.container}>
+                <TouchableOpacity onPress={() => navigation.navigate('pagLivroDetalhes', { livro })}>
                 <View>
                   {livro.imagem && (
-                    <Image source={{ uri: livro.imagem }} style={{ width: 100, height: 100 }} />
+                    <Image source={{ uri: livro.imagem }} style={{ width: 220, height: 350 }} />
                   )}
                 </View>
                 <View>
                   <Text>{livro.nome}</Text>
-                  <View>
-                    <View>
-                      <Text>{livro.autor}</Text>
-                      <Text>{livro.categoria}</Text>
-                      <Text>{livro.paginas}</Text>
-                    </View>
-                  </View>
                 </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity>
+                <View>
+                <Feather name="heart" size={24} color="black" />
+                </View>
+                </TouchableOpacity>
+
               </View>
             );
           })}
@@ -56,5 +63,11 @@ const LivroPage = () => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container:{
+    flexDirection: 'row'
+  },
+})
 
 export default LivroPage;
