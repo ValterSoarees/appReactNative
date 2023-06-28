@@ -56,11 +56,11 @@ export default function TelaLogin() {
 
     <View style={styles.FormCadastro}>
       <Text style={styles.text}>Não possui conta?</Text>
-    {/* <TouchableOpacity style={styles.btCadastro} onPress={() => navigation.navigate('pagTelaCadastro')}>
+    <TouchableOpacity style={styles.btCadastro} onPress={() => navigation.navigate('pagTelaCadastro')}>
       <Text style={styles.textCadastro}>
         CADASTRE-SE
       </Text>
-    </TouchableOpacity> */}
+    </TouchableOpacity>
     </View>
 
   </Animatable.View>

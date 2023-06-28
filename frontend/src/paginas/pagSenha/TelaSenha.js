@@ -25,12 +25,12 @@ import {
 
         <View style={styles.dadosCadastro}>
             
-            <View style={{ }}>
+            <View style={{ position: 'absolute', bottom: '45%' }}>
             <Animatable.Image
             animation="flipInX"
             source={require('../../assets/logo.png')}
             resizeMode="contain"
-            style={{ width: 250 }}
+            style={{ width: 200 }}
             />
             </View>
 
@@ -92,6 +92,7 @@ import {
         fontSize: 20,
         // fontWeight: 'bold',
         marginBottom: '5%',
+        marginTop: '40%',
         color: '#fff',
         textAlign: 'center',
       },
@@ -102,6 +103,8 @@ import {
         backgroundColor: '#D9D9D9',
         padding: 6,
         color: '#fff',
+        marginTop: '10%',
+        marginBottom: '10%'
       },
       dadosCadastro:{
         flex: 1,

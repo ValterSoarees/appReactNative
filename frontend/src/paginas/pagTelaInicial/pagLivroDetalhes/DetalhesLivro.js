@@ -89,23 +89,22 @@ export default function DetalhesLivro() {
               <View style={styles.textDescricao}>
               <Text><Text style={styles.negrito}>Descrição: </Text>{livroDetalhes.descricao}</Text>
               </View>
-              {/* <Text>Categoria: {livroDetalhes.categoria}</Text> */}
             </View>
-            <View style={{alignSelf: 'flex-start', marginLeft: '5%', marginTop: '5%'}}>
-              <Text style={styles.negrito}>Comentários: </Text>
+            <View style={{alignSelf: 'flex-start', marginLeft: '10%', marginTop: '7%', marginBottom: '4%'}}>
+              <Text style={styles.negrito}>Comentários:</Text>
             </View>
-            <View>
-              <Text>Nome: </Text><TextInput placeholder="Nome" onChangeText={(text) => setNome(text)}/>
-            </View>
-            <View>
-              <Text>Comentário: </Text> 
-              <TextInput multiline={true} numberOfLines={10000} onChangeText={(text) => setComentario(text)} />
-            </View>
-            <TouchableOpacity style={styles.buttonEntrar} onPress={() => load()}>
-            <Text style={styles.entrar}>
+
+            <View style={styles.cardComentarios}>
+            <Text style={styles.negrito}>Você já leu essa obra? Deixe um comentário abaixo </Text>
+              <TextInput placeholder="Nome" onChangeText={(text) => setNome(text)} style={styles.nomeComentario}/>
+              <TextInput multiline={true} numberOfLines={500} onChangeText={(text) => setComentario(text)} style={styles.caixaComentario}/>
+            
+            <TouchableOpacity style={styles.buttonComentar} onPress={() => load()}>
+            <Text style={styles.textButton}>
             Comentar
             </Text>
             </TouchableOpacity>
+            </View>
           </View>
         )}
       </ScrollView>
@@ -134,7 +133,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   negrito:{
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10
   },
   btFavoritar:{
     backgroundColor: '#2152CF',
@@ -153,9 +153,43 @@ const styles = StyleSheet.create({
   textDescricao: {
     marginLeft: '5%',
     marginRight: '5%'
+  },
+  nomeComentario:{
+    borderWidth: 1,
+    borderColor: '#2152CF',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    padding: 10,
+    marginBottom: '2%',
+    width: '90%',
+    height: '10%'
+  },
+  cardComentarios:{
+    width: '90%',
+    alignItems: 'center',
+    paddingBottom: '20%'
+  },
+  caixaComentario:{
+    borderWidth: 1,
+    borderColor: '#2152CF',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    padding: 10,
+    marginBottom: '2%',
+    width: '90%',
+    height: '20%',
+  },
+  buttonComentar:{
+    backgroundColor: '#2152CF',
+    padding: 10,
+    marginTop: 10,
+    width: '90%',
+    borderRadius: 10
+    
+  },
+  textButton:{
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: '600'
   }
-  // placeholderContainer: {
-  // },
-  // placeholderText: {
-  // },
 });

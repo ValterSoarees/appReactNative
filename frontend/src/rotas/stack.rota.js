@@ -1,11 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Feather, FontAwesome, Ionicons } from '@expo/vector-icons'; 
-
 import pagBemVindos from '../paginas/pagBemVindos/TelaBemVindos';
 import pagTelaLogin from '../paginas/pagTelaLogin/TelaLogin';
-// import pagTelaCadastro from '../paginas/pagTelaCadastro/TelaCadastro';
-// import pagSenha from '../paginas/pagSenha/TelaSenha';
+import pagTelaCadastro from '../paginas/pagTelaCadastro/TelaCadastro';
 import pagLivroDetalhes from '../paginas/pagTelaInicial/pagLivroDetalhes/DetalhesLivro';
 
 import TabRota from './tab.rota';
@@ -29,17 +26,11 @@ export default function StackRota(){
             options={{ headerShown: false }}
             />
 
-            {/* <Stack.Screen
+            <Stack.Screen
             name="pagTelaCadastro"
             component={pagTelaCadastro}
             options={{ headerShown: false }} 
-            />*/}
-
-            {/* <Stack.Screen
-            name="pagSenha"
-            component={pagSenha}
-            options={{ headerShown: false }}
-            /> */}
+            />
 
             <Stack.Screen
             name="tabBottom"

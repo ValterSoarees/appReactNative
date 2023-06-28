@@ -12,7 +12,6 @@ import {
 
   import * as Animatable from 'react-native-animatable';
   import { useNavigation } from '@react-navigation/native';
-  import axios from 'axios';
 
 
   import { Conexaoback } from "../../services/conexaoback"
@@ -22,7 +21,7 @@ import {
 
   const navigation = useNavigation();
 
-
+  const [ocultarSenha, setOcultarsenha] = useState('');
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
@@ -78,10 +77,6 @@ import {
             value={nome}
             onChangeText={setNome}
             style={styles.input} placeholder="Nome e sobrenome"/>
-            <ErrorMessage
-              component="span"
-              name="nome"
-            />
           </View>
 
           <View>
@@ -92,10 +87,6 @@ import {
             value={email}
             onChangeText={setEmail}
             style={styles.input} placeholder="Email"/>
-            <ErrorMessage
-              component="span"
-              name="email"
-            />
           </View>
 
           <View>
@@ -106,10 +97,6 @@ import {
             value={telefone}
             onChangeText={setTelefone}
             style={styles.input} placeholder="Telefone"/>
-            <ErrorMessage
-              component="span"
-              name="telefone"
-            />
           </View>
 
             <Text style={styles.text}>
@@ -127,11 +114,7 @@ import {
                 :
                 <AntDesign name="eyeo" size={25} color="black" />
               }
-            </TouchableOpacity>
-            <ErrorMessage
-              component="span"
-              name="password"
-            />    
+            </TouchableOpacity> 
           </View>
 
           <View style={styles.campoBotoes}>  
@@ -190,7 +173,6 @@ import {
       tituloPag:{
         fontSize: 35,
         fontWeight: 'bold',
-        // marginBottom: '5%',
         color: '#fff',
         textAlign: 'center'
       },

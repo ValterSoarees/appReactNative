@@ -2,24 +2,17 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerI
 
 import TabRota from './tab.rota';
 import pagSenha from '../paginas/pagSenha/TelaSenha'
-import pagPerfil from '../paginas/pagPerfil/PagPerfil'
+import { View } from 'react-native-animatable';
+import MenuButtonItem from './menu/menuButtonItem';
+import { Text, StyleSheet } from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
-// function CustomDrawerContent(props) {
-//     return (
-//       <DrawerContentScrollView {...props}>
-//         <DrawerItemList {...props} />
-//         <DrawerItem label="Sair" onPress={() => navigation.navigate('pagTelaLogin')} />
-//       </DrawerContentScrollView>
-//     );
-//   }
-
 export default function DrawerRota(){
     return(
-    <Drawer.Navigator 
-        // useLegacyImplementation
-        // drawerContent={(props) => <CustomDrawerContent {...props} />}
+    <Drawer.Navigator
+        drawerContent={ (props) => <MenuItens {...props}/>}
+        
     >
         <Drawer.Screen
         name="Início"
@@ -29,13 +22,37 @@ export default function DrawerRota(){
     <Drawer.Screen
         name="Trocar Senha"
         component={pagSenha}
+        options={{ headerShown: false }} 
         />
- 
-    {/* <Drawer.Screen
-        name="Perfil"
-        component={pagPerfil}
-        /> */}
 
     </Drawer.Navigator>
     )
 }
+
+const MenuItens = ({ navigation }) => {
+    return(
+        <DrawerContentScrollView style={styles.container}> 
+            <MenuButtonItem
+            text= "Início"
+            onPress= {() => navigation.navigate('Início')}
+            style={styles.inicio}
+            />
+
+            <MenuButtonItem
+            text= "Trocar Senha"
+            onPress= {() => navigation.navigate('Trocar Senha')}
+            />
+
+            <MenuButtonItem
+            text= "Sair"
+            onPress= {() => navigation.navigate('pagTelaLogin')}
+            />
+        </DrawerContentScrollView>
+    )
+}
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: '#fff',
+    },
+})
